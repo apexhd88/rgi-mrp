@@ -1,0 +1,39 @@
+{
+  "name": "mrp-desktop",
+  "version": "0.1.0",
+  "description": "Minimal MRP desktop app (Electron + SQLite) with basic MRP features",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package:win": "electron-packager . mrp-desktop --platform=win32 --arch=x64 --out=dist --overwrite",
+    "build:win": "electron-builder --win --x64"
+  },
+  "keywords": ["mrp","electron","sqlite"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^8.1.0",
+    "electron": "^25.3.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "electron-packager": "^17.1.1",
+    "electron-builder": "^24.6.0"
+  }
+  ,
+  "build": {
+    "appId": "com.example.mrpdesktop",
+    "productName": "MRP Desktop",
+    "directories": {
+      "output": "dist_installer"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ]
+    }
+  }
+}
